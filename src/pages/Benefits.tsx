@@ -1,17 +1,12 @@
-import { DynamicComponent } from '../components/ComponentRegistry';
+import { Hero, Benefits as BenefitsSection, CTABanner } from '../components/components';
 import benefitsData from '../data/benefits.json';
 
 export default function Benefits() {
   return (
     <div>
-      {benefitsData.sections.map((section, index) => (
-        <div key={index}>
-          <DynamicComponent
-            componentName={section.component as any}
-            props={{ data: section.data }}
-          />
-        </div>
-      ))}
+      <Hero data={benefitsData.sections[0].data} />
+      <BenefitsSection data={benefitsData.sections[1].data} />
+      <CTABanner data={benefitsData.sections[2].data} />
     </div>
   );
 }

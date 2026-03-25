@@ -24,7 +24,7 @@ export const Testimonial = (props: any) => (
   <DynamicComponent componentName="testimonial" props={props} />
 );
 
-export const BenefitsSection = (props: any) => (
+export const Benefits = (props: any) => (
   <DynamicComponent componentName="benefitsSection" props={props} />
 );
 
