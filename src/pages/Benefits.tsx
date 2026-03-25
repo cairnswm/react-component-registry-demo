@@ -2,12 +2,12 @@ import { Hero, Benefits as BenefitsSection, CTABanner } from '../components/';
 import Hero2 from '../components/Hero2';
 import benefitsData from '../data/benefits.json';
 
-const componentOverrides = {
-  hero: {
-    component: Hero2,
+const componentOverrides = [
+  {
+    hero: Hero2,
     enabled: false,
   },
-};
+];
 
 export default function Benefits() {
   return (

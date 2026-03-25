@@ -24,22 +24,22 @@ const defaultRegistry: Record<string, ComponentType> = {
 };
 
 interface ComponentOverride {
-  component: ComponentType;
+  [key: string]: ComponentType;
   enabled: boolean;
 }
 
 interface DynamicComponentProps {
   componentName: string;
   props?: any;
-  overrides?: Record<string, ComponentOverride>;
+  overrides?: ComponentOverride[];
 }
 
-export function DynamicComponent({ componentName, props = {}, overrides = {} }: DynamicComponentProps) {
+export function DynamicComponent({ componentName, props = {}, overrides = [] }: DynamicComponentProps) {
   const registry = { ...defaultRegistry };
 
-  const override = overrides[componentName];
-  if (override && override.enabled) {
-    registry[componentName] = override.component;
+  const activeOverride = overrides.find(override => override.enabled && override[componentName]);
+  if (activeOverride) {
+    registry[componentName] = activeOverride[componentName];
   }
 
   const Component = registry[componentName];

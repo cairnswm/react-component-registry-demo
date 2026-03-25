@@ -2,12 +2,12 @@ import { DynamicComponent } from '../components/ComponentRegistry';
 import Hero2 from '../components/Hero2';
 import aboutData from '../data/about.json';
 
-const componentOverrides = {
-  hero: {
-    component: Hero2,
+const componentOverrides = [
+  {
+    hero: Hero2,
     enabled: true,
   },
-};
+];
 
 export default function About() {
   return (
