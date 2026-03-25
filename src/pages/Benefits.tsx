@@ -5,7 +5,7 @@ import benefitsData from '../data/benefits.json';
 const componentOverrides = [
   {
     hero: Hero2,
-    enabled: true,
+    enabled: false,
   },
 ];
 
