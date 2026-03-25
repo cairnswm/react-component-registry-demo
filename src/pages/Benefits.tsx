@@ -1,4 +1,4 @@
-import { Hero, Benefits as BenefitsSection, CTABanner } from '../components/components';
+import { Hero, Benefits as BenefitsSection, CTABanner } from '../components/';
 import benefitsData from '../data/benefits.json';
 
 export default function Benefits() {
