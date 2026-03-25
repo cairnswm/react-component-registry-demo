@@ -13,7 +13,7 @@ import { ComponentOverride } from '../types/content';
 type RegistryKey = 'hero' | 'story' | 'features' | 'testimonial' | 'benefits' | 'cta' | 'winners' | 'stats' | 'companies';
 
 type ComponentRegistry = {
-  readonly [K in RegistryKey]: React.ComponentType<Record<string, unknown>>;
+  readonly [K in RegistryKey]: React.ComponentType<unknown>;
 };
 
 const defaultRegistry: ComponentRegistry = {
@@ -28,18 +28,26 @@ const defaultRegistry: ComponentRegistry = {
   companies: Companies,
 } as const;
 
-interface DynamicComponentProps {
-  componentName: string;
-  props?: Record<string, unknown>;
+type ComponentPropsMap = {
+  [K in RegistryKey]: React.ComponentPropsWithoutRef<ComponentRegistry[K]>;
+};
+
+interface DynamicComponentProps<T extends RegistryKey = RegistryKey> {
+  componentName: T;
+  props?: Partial<ComponentPropsMap[T]>;
   overrides?: ComponentOverride[];
 }
 
-export function DynamicComponent({ componentName, props = {}, overrides = [] }: DynamicComponentProps) {
-  const registry: Record<string, React.ComponentType<Record<string, unknown>>> = { ...defaultRegistry };
+export function DynamicComponent<T extends RegistryKey>({
+  componentName,
+  props = {},
+  overrides = []
+}: DynamicComponentProps<T>) {
+  const registry: Record<string, React.ComponentType<unknown>> = { ...defaultRegistry };
 
   const activeOverride = overrides.find(override => override.enabled && override[componentName]);
   if (activeOverride && typeof activeOverride[componentName] !== 'boolean') {
-    registry[componentName] = activeOverride[componentName] as React.ComponentType<Record<string, unknown>>;
+    registry[componentName] = activeOverride[componentName] as React.ComponentType<unknown>;
   }
 
   const Component = registry[componentName];

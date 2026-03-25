@@ -139,6 +139,6 @@ export interface ComponentProps {
 }
 
 export interface ComponentOverride {
-  [key: string]: React.ComponentType<Record<string, unknown>> | boolean;
+  [key: string]: React.ComponentType<unknown> | boolean;
   enabled: boolean;
 }
