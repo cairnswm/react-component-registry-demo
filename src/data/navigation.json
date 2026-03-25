@@ -1,0 +1,8 @@
+{
+  "logo": "Innovate",
+  "links": [
+    { "label": "Home", "path": "/home" },
+    { "label": "About", "path": "/about" },
+    { "label": "Benefits", "path": "/benefits" }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "sections": [
+    {
+      "component": "hero",
+      "data": {
+        "title": "Transform Your Business Today",
+        "subtitle": "The all-in-one platform trusted by over 10,000 companies worldwide to streamline operations and drive growth",
+        "cta": {
+          "primary": "Get Started Free",
+          "secondary": "Learn More"
+        },
+        "image": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "primaryAction": "/benefits",
+        "secondaryAction": "/about"
+      }
+    },
+    {
+      "component": "stats",
+      "data": {
+        "stats": [
+          { "value": "10K+", "label": "Active Users" },
+          { "value": "99.9%", "label": "Uptime" },
+          { "value": "150+", "label": "Countries" },
+          { "value": "4.9/5", "label": "Rating" }
+        ]
+      }
+    },
+    {
+      "component": "companies",
+      "data": {
+        "title": "Trusted by Industry Leaders",
+        "subtitle": "Join thousands of companies already transforming their operations with our platform",
+        "companies": ["TechCorp", "Innovate Ltd", "Global Solutions", "Future Systems", "Digital Dynamics"]
+      }
+    }
+  ]
+}

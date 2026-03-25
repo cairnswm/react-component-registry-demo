@@ -1,0 +1,39 @@
+{
+  "sections": [
+    {
+      "component": "hero",
+      "data": {
+        "title": "Welcome to the Future of Work",
+        "subtitle": "Join thousands of forward-thinking teams who are revolutionizing their workflow with our platform",
+        "cta": {
+          "primary": "Start Free Trial",
+          "secondary": "Watch Demo"
+        },
+        "image": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200"
+      }
+    },
+    {
+      "component": "featuresBanner",
+      "data": {
+        "title": "Built for Modern Teams",
+        "description": "Everything you need to collaborate, innovate, and succeed in today's fast-paced environment",
+        "image": "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "features": [
+          { "icon": "Zap", "title": "Lightning Fast", "description": "Optimized performance for instant results" },
+          { "icon": "Shield", "title": "Enterprise Security", "description": "Bank-level encryption and compliance" },
+          { "icon": "Users", "title": "Team Collaboration", "description": "Work together seamlessly in real-time" },
+          { "icon": "TrendingUp", "title": "Analytics & Insights", "description": "Data-driven decisions made simple" }
+        ]
+      }
+    },
+    {
+      "component": "testimonial",
+      "data": {
+        "quote": "This platform has completely transformed how our team works. We've seen a 300% increase in productivity.",
+        "author": "Sarah Johnson",
+        "role": "CEO, TechCorp",
+        "image": "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600"
+      }
+    }
+  ]
+}
