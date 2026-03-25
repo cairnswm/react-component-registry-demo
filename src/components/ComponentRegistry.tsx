@@ -10,7 +10,7 @@ import Stats from './Stats';
 import Companies from './Companies';
 import { ComponentOverride } from '../types/content';
 
-type RegistryKey = 'hero' | 'story' | 'features' | 'featuresBanner' | 'testimonial' | 'benefits' | 'cta' | 'winners' | 'stats' | 'companies';
+type RegistryKey = 'hero' | 'story' | 'features' | 'featuresBanner' | 'testimonial' | 'benefits' | 'cta' | 'winners' | 'winnersBanner' | 'stats' | 'companies';
 
 type ComponentRegistry = {
   readonly [K in RegistryKey]: React.ComponentType<unknown>;
@@ -25,6 +25,7 @@ const defaultRegistry: ComponentRegistry = {
   benefits: BenefitsSection,
   cta: CTABanner,
   winners: WinnersBanner,
+  winnersBanner: WinnersBanner,
   stats: Stats,
   companies: Companies,
 } as const;
