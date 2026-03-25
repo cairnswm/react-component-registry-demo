@@ -8,15 +8,13 @@ import CTABanner from './CTABanner';
 import WinnersBanner from './WinnersBanner';
 import Stats from './Stats';
 import Companies from './Companies';
-import { ComponentOverride, ComponentProps } from '../types/content';
-
-type ComponentType = React.ComponentType<ComponentProps>;
-
-type ComponentRegistry = {
-  readonly [K in RegistryKey]: ComponentType;
-};
+import { ComponentOverride } from '../types/content';
 
 type RegistryKey = 'hero' | 'story' | 'features' | 'testimonial' | 'benefits' | 'cta' | 'winners' | 'stats' | 'companies';
+
+type ComponentRegistry = {
+  readonly [K in RegistryKey]: React.ComponentType<Record<string, unknown>>;
+};
 
 const defaultRegistry: ComponentRegistry = {
   hero: Hero,
@@ -32,16 +30,16 @@ const defaultRegistry: ComponentRegistry = {
 
 interface DynamicComponentProps {
   componentName: string;
-  props?: Partial<ComponentProps>;
+  props?: Record<string, unknown>;
   overrides?: ComponentOverride[];
 }
 
 export function DynamicComponent({ componentName, props = {}, overrides = [] }: DynamicComponentProps) {
-  const registry: Record<string, ComponentType> = { ...defaultRegistry };
+  const registry: Record<string, React.ComponentType<Record<string, unknown>>> = { ...defaultRegistry };
 
   const activeOverride = overrides.find(override => override.enabled && override[componentName]);
   if (activeOverride && typeof activeOverride[componentName] !== 'boolean') {
-    registry[componentName] = activeOverride[componentName] as ComponentType;
+    registry[componentName] = activeOverride[componentName] as React.ComponentType<Record<string, unknown>>;
   }
 
   const Component = registry[componentName];
@@ -51,5 +49,5 @@ export function DynamicComponent({ componentName, props = {}, overrides = [] }: 
     return null;
   }
 
-  return <Component {...props as ComponentProps} />;
+  return <Component {...props} />;
 }

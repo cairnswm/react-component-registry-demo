@@ -1,9 +1,6 @@
 import { DynamicComponent } from './ComponentRegistry';
-import { ComponentProps } from '../types/content';
 
-type WrapperComponentProps = Omit<ComponentProps, 'data'> & {
-  data?: ComponentProps['data'];
-};
+type WrapperComponentProps = Record<string, unknown>;
 
 export const Hero = ({ overrides, ...restOfProps }: WrapperComponentProps) => (
   <DynamicComponent componentName="hero" props={restOfProps} overrides={overrides} />
