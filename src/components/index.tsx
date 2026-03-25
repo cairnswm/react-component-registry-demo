@@ -1,41 +1,41 @@
 import { DynamicComponent } from './ComponentRegistry';
 
-export const Hero = ({ overrides, ...props }: any) => (
-  <DynamicComponent componentName="hero" props={props} overrides={overrides} />
+export const Hero = ({ overrides, ...restOfProps }: any) => (
+  <DynamicComponent componentName="hero" props={restOfProps} overrides={overrides} />
 );
 
-export const Hero2 = ({ overrides, ...props }: any) => (
-  <DynamicComponent componentName="hero2" props={props} overrides={overrides} />
+export const Hero2 = ({ overrides, ...restOfProps }: any) => (
+  <DynamicComponent componentName="hero2" props={restOfProps} overrides={overrides} />
 );
 
-export const Stats = ({ overrides, ...props }: any) => (
-  <DynamicComponent componentName="stats" props={props} overrides={overrides} />
+export const Stats = ({ overrides, ...restOfProps }: any) => (
+  <DynamicComponent componentName="stats" props={restOfProps} overrides={overrides} />
 );
 
-export const Companies = ({ overrides, ...props }: any) => (
-  <DynamicComponent componentName="companies" props={props} overrides={overrides} />
+export const Companies = ({ overrides, ...restOfProps }: any) => (
+  <DynamicComponent componentName="companies" props={restOfProps} overrides={overrides} />
 );
 
-export const Story = ({ overrides, ...props }: any) => (
-  <DynamicComponent componentName="story" props={props} overrides={overrides} />
+export const Story = ({ overrides, ...restOfProps }: any) => (
+  <DynamicComponent componentName="story" props={restOfProps} overrides={overrides} />
 );
 
-export const Testimonial = ({ overrides, ...props }: any) => (
-  <DynamicComponent componentName="testimonial" props={props} overrides={overrides} />
+export const Testimonial = ({ overrides, ...restOfProps }: any) => (
+  <DynamicComponent componentName="testimonial" props={restOfProps} overrides={overrides} />
 );
 
-export const Benefits = ({ overrides, ...props }: any) => (
-  <DynamicComponent componentName="benefits" props={props} overrides={overrides} />
+export const Benefits = ({ overrides, ...restOfProps }: any) => (
+  <DynamicComponent componentName="benefits" props={restOfProps} overrides={overrides} />
 );
 
-export const CTABanner = ({ overrides, ...props }: any) => (
-  <DynamicComponent componentName="cta" props={props} overrides={overrides} />
+export const CTABanner = ({ overrides, ...restOfProps }: any) => (
+  <DynamicComponent componentName="cta" props={restOfProps} overrides={overrides} />
 );
 
-export const FeaturesBanner = ({ overrides, ...props }: any) => (
-  <DynamicComponent componentName="features" props={props} overrides={overrides} />
+export const FeaturesBanner = ({ overrides, ...restOfProps }: any) => (
+  <DynamicComponent componentName="features" props={restOfProps} overrides={overrides} />
 );
 
-export const WinnersBanner = ({ overrides, ...props }: any) => (
-  <DynamicComponent componentName="winners" props={props} overrides={overrides} />
+export const WinnersBanner = ({ overrides, ...restOfProps }: any) => (
+  <DynamicComponent componentName="winners" props={restOfProps} overrides={overrides} />
 );
