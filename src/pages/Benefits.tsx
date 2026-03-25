@@ -12,9 +12,12 @@ const componentOverrides = [
 export default function Benefits() {
   return (
     <div>
-      <Hero data={benefitsData.hero} overrides={coponentOverrides} />
-      <BenefitsSection data={benefitsData.benefits} />
-      <CTABanner data={benefitsData.cta} />
+      <Hero data={benefitsData.hero} 
+            overrides={componentOverrides} />
+      <BenefitsSection data={benefitsData.benefits} 
+            overrides={componentOverrides} />
+      <CTABanner data={benefitsData.cta} 
+            overrides={componentOverrides}/>
     </div>
   );
 }
