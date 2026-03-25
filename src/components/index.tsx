@@ -25,17 +25,17 @@ export const Testimonial = (props: any) => (
 );
 
 export const Benefits = (props: any) => (
-  <DynamicComponent componentName="benefitsSection" props={props} />
+  <DynamicComponent componentName="benefits" props={props} />
 );
 
 export const CTABanner = (props: any) => (
-  <DynamicComponent componentName="ctaBanner" props={props} />
+  <DynamicComponent componentName="cta" props={props} />
 );
 
 export const FeaturesBanner = (props: any) => (
-  <DynamicComponent componentName="featuresBanner" props={props} />
+  <DynamicComponent componentName="features" props={props} />
 );
 
 export const WinnersBanner = (props: any) => (
-  <DynamicComponent componentName="winnersBanner" props={props} />
+  <DynamicComponent componentName="winners" props={props} />
 );
