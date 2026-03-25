@@ -1,66 +1,55 @@
 {
-  "sections": [
-    {
-      "component": "hero",
-      "data": {
-        "title": "Why Teams Choose Us",
-        "subtitle": "Discover the advantages that set us apart and help your business thrive",
-        "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  "hero": {
+    "title": "Why Teams Choose Us",
+    "subtitle": "Discover the advantages that set us apart and help your business thrive",
+    "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  },
+  "benefits": {
+    "title": "Everything You Need to Succeed",
+    "description": "Comprehensive features designed to help your team achieve more",
+    "items": [
+      {
+        "icon": "Rocket",
+        "title": "Accelerated Growth",
+        "description": "Scale your operations without complexity. Our platform grows with you.",
+        "highlights": ["Unlimited scaling", "Zero downtime", "Global infrastructure"]
+      },
+      {
+        "icon": "DollarSign",
+        "title": "Cost Effective",
+        "description": "Reduce operational costs by up to 60% while improving efficiency.",
+        "highlights": ["Flexible pricing", "No hidden fees", "ROI in 3 months"]
+      },
+      {
+        "icon": "Lock",
+        "title": "Enterprise Security",
+        "description": "Military-grade encryption and compliance with all major standards.",
+        "highlights": ["SOC 2 certified", "GDPR compliant", "24/7 monitoring"]
+      },
+      {
+        "icon": "Smartphone",
+        "title": "Mobile Ready",
+        "description": "Access everything from anywhere on any device.",
+        "highlights": ["Native apps", "Offline mode", "Cross-platform sync"]
+      },
+      {
+        "icon": "Headphones",
+        "title": "Expert Support",
+        "description": "Get help when you need it from our dedicated support team.",
+        "highlights": ["24/7 availability", "< 2 min response", "95% first-call resolution"]
+      },
+      {
+        "icon": "BarChart3",
+        "title": "Advanced Analytics",
+        "description": "Make informed decisions with powerful reporting and insights.",
+        "highlights": ["Real-time dashboards", "Custom reports", "Predictive AI"]
       }
-    },
-    {
-      "component": "benefits",
-      "data": {
-        "title": "Everything You Need to Succeed",
-        "description": "Comprehensive features designed to help your team achieve more",
-        "items": [
-          {
-            "icon": "Rocket",
-            "title": "Accelerated Growth",
-            "description": "Scale your operations without complexity. Our platform grows with you.",
-            "highlights": ["Unlimited scaling", "Zero downtime", "Global infrastructure"]
-          },
-          {
-            "icon": "DollarSign",
-            "title": "Cost Effective",
-            "description": "Reduce operational costs by up to 60% while improving efficiency.",
-            "highlights": ["Flexible pricing", "No hidden fees", "ROI in 3 months"]
-          },
-          {
-            "icon": "Lock",
-            "title": "Enterprise Security",
-            "description": "Military-grade encryption and compliance with all major standards.",
-            "highlights": ["SOC 2 certified", "GDPR compliant", "24/7 monitoring"]
-          },
-          {
-            "icon": "Smartphone",
-            "title": "Mobile Ready",
-            "description": "Access everything from anywhere on any device.",
-            "highlights": ["Native apps", "Offline mode", "Cross-platform sync"]
-          },
-          {
-            "icon": "Headphones",
-            "title": "Expert Support",
-            "description": "Get help when you need it from our dedicated support team.",
-            "highlights": ["24/7 availability", "< 2 min response", "95% first-call resolution"]
-          },
-          {
-            "icon": "BarChart3",
-            "title": "Advanced Analytics",
-            "description": "Make informed decisions with powerful reporting and insights.",
-            "highlights": ["Real-time dashboards", "Custom reports", "Predictive AI"]
-          }
-        ]
-      }
-    },
-    {
-      "component": "ctaBanner",
-      "data": {
-        "title": "Ready to Transform Your Business?",
-        "description": "Join over 10,000 teams who have already made the switch",
-        "cta": "Start Your Free Trial",
-        "image": "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200"
-      }
-    }
-  ]
+    ]
+  },
+  "cta": {
+    "title": "Ready to Transform Your Business?",
+    "description": "Join over 10,000 teams who have already made the switch",
+    "cta": "Start Your Free Trial",
+    "image": "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  }
 }
