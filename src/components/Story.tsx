@@ -1,9 +1,12 @@
 import { Story as StoryType } from '../types/content';
 import * as Icons from 'lucide-react';
+import { Video as LucideIcon } from 'lucide-react';
 
 interface StoryProps {
   data: StoryType;
 }
+
+type IconsType = Record<string, LucideIcon>;
 
 export default function Story({ data }: StoryProps) {
   return (
@@ -20,7 +23,7 @@ export default function Story({ data }: StoryProps) {
 
         <div className="grid md:grid-cols-3 gap-8">
           {data.values.map((value, index) => {
-            const IconComponent = (Icons as any)[value.icon];
+            const IconComponent = (Icons as IconsType)[value.icon];
             return (
               <div
                 key={index}

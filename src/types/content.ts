@@ -90,9 +90,34 @@ export interface CTABanner {
   image: string;
 }
 
+export interface Company {
+  name: string;
+  logo: string;
+}
+
+export interface Companies {
+  title: string;
+  logos: Company[];
+}
+
+export interface StatsSection {
+  stats: Stat[];
+}
+
+export type ComponentDataType =
+  | HeroSection
+  | Story
+  | FeaturesBanner
+  | Testimonial
+  | BenefitsSection
+  | CTABanner
+  | WinnersBanner
+  | StatsSection
+  | Companies;
+
 export interface PageSection {
   component: string;
-  data: any;
+  data: ComponentDataType;
 }
 
 export interface Page {
@@ -106,7 +131,14 @@ export interface Content {
   benefits: Page;
 }
 
+export interface ComponentProps {
+  data: ComponentDataType;
+  overrides?: ComponentOverride[];
+  onPrimaryClick?: () => void;
+  onSecondaryClick?: () => void;
+}
+
 export interface ComponentOverride {
-  [key: string]: React.ComponentType<any> | boolean;
+  [key: string]: React.ComponentType<ComponentProps> | boolean;
   enabled: boolean;
 }
