@@ -5,14 +5,14 @@ import benefitsData from '../data/benefits.json';
 const componentOverrides = [
   {
     hero: Hero2,
-    enabled: false,
+    enabled: true,
   },
 ];
 
 export default function Benefits() {
   return (
     <div>
-      <Hero data={benefitsData.hero} />
+      <Hero data={benefitsData.hero} overrides={coponentOverrides} />
       <BenefitsSection data={benefitsData.benefits} />
       <CTABanner data={benefitsData.cta} />
     </div>
