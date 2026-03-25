@@ -3,7 +3,10 @@ import Hero2 from '../components/Hero2';
 import aboutData from '../data/about.json';
 
 const componentOverrides = {
-  hero: Hero2,
+  hero: {
+    component: Hero2,
+    enabled: true,
+  },
 };
 
 export default function About() {
