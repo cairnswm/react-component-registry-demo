@@ -1,8 +1,9 @@
 import { Hero, Benefits as BenefitsSection, CTABanner } from '../components/';
 import Hero2 from '../components/Hero2';
 import benefitsData from '../data/benefits.json';
+import { ComponentOverride } from '../types/content';
 
-const componentOverrides = [
+const componentOverrides: ComponentOverride[] = [
   {
     hero: Hero2,
     enabled: false,

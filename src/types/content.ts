@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface NavigationLink {
   label: string;
   path: string;
@@ -102,4 +104,9 @@ export interface Content {
   home: Page;
   about: Page;
   benefits: Page;
+}
+
+export interface ComponentOverride {
+  [key: string]: React.ComponentType<any> | boolean;
+  enabled: boolean;
 }

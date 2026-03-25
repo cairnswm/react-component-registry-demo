@@ -8,6 +8,7 @@ import CTABanner from './CTABanner';
 import WinnersBanner from './WinnersBanner';
 import Stats from './Stats';
 import Companies from './Companies';
+import { ComponentOverride } from '../types/content';
 
 type ComponentType = React.ComponentType<any>;
 
@@ -22,11 +23,6 @@ const defaultRegistry: Record<string, ComponentType> = {
   stats: Stats,
   companies: Companies,
 };
-
-interface ComponentOverride {
-  [key: string]: ComponentType;
-  enabled: boolean;
-}
 
 interface DynamicComponentProps {
   componentName: string;

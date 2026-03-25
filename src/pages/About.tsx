@@ -1,8 +1,9 @@
 import { DynamicComponent } from '../components/ComponentRegistry';
 import Hero2 from '../components/Hero2';
 import aboutData from '../data/about.json';
+import { ComponentOverride } from '../types/content';
 
-const componentOverrides = [
+const componentOverrides: ComponentOverride[] = [
   {
     hero: Hero2,
     enabled: true,
