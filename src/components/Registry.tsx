@@ -52,8 +52,8 @@ function createRegistryComponent<K extends RegistryKey>(key: K) {
       typeof activeOverride?.[key] === 'function'
         ? activeOverride[key]
         : defaultRegistry[key]
-    ) as React.ComponentType<ComponentPropsMap[K]>;
-    return <Component {...props} />;
+    ) as React.ComponentType<Partial<ComponentPropsMap[K]>>;
+    return <Component {...(props as Partial<ComponentPropsMap[K]>)} />;
   }
   RegistryComponent.displayName = `Registry.${key}`;
   return RegistryComponent;
