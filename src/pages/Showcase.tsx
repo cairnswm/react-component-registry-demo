@@ -6,16 +6,22 @@ import Hero from '../components/Hero';
 import Hero2 from '../components/Hero2';
 import Stats from '../components/Stats';
 import Companies from '../components/Companies';
-import landingData from '../data/landing.json';
+import { landingSections } from '../data/landing';
 
-const [heroSection, statsSection, companiesSection] = landingData.sections;
+// ─── Page content ────────────────────────────────────────────────────────────────
 
-function ShowcaseContent() {
+interface ShowcaseContentProps {
+  hero: ComponentPropsMap['hero']['data'];
+  stats: ComponentPropsMap['stats']['data'];
+  companies: ComponentPropsMap['companies']['data'];
+}
+
+function ShowcaseContent({ hero, stats, companies }: ShowcaseContentProps) {
   return (
     <>
-      <Registry.Hero data={heroSection.data as ComponentPropsMap['hero']['data']} />
-      <Registry.Stats data={statsSection.data as ComponentPropsMap['stats']['data']} />
-      <Registry.Companies data={companiesSection.data as ComponentPropsMap['companies']['data']} />
+      <Registry.Hero data={hero} />
+      <Registry.Stats data={stats} />
+      <Registry.Companies data={companies} />
     </>
   );
 }
@@ -30,5 +36,16 @@ ShowcaseContent.overrides = [
   { hero: Hero2, enabled: false },
 ] satisfies ComponentOverride[];
 
-const Showcase = withRegistry(ShowcaseContent);
-export default Showcase;
+// ─── Route component ───────────────────────────────────────────────────────────────
+
+const ShowcaseWithRegistry = withRegistry(ShowcaseContent);
+
+export default function Showcase() {
+  return (
+    <ShowcaseWithRegistry
+      hero={landingSections.hero}
+      stats={landingSections.stats}
+      companies={landingSections.companies}
+    />
+  );
+}
