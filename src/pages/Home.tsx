@@ -1,4 +1,4 @@
-import { DynamicComponent } from '../components/ComponentRegistry';
+import { DynamicComponent, RegistryKey } from '../components/ComponentRegistry';
 import homeData from '../data/home.json';
 
 /**
@@ -35,7 +35,7 @@ export default function Home() {
       {homeData.sections.map((section, index) => (
         <div key={index}>
           <DynamicComponent
-            componentName={section.component as any}
+            componentName={section.component as RegistryKey}
             props={{ data: section.data }}
           />
         </div>

@@ -3,10 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface HeroProps {
-  data: HeroSection & {
-    primaryAction?: string;
-    secondaryAction?: string;
-  };
+  data: HeroSection;
   onPrimaryClick?: () => void;
   onSecondaryClick?: () => void;
 }

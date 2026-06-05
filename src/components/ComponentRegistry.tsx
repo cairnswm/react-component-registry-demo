@@ -1,42 +1,21 @@
 import React from 'react';
-import Hero from './Hero';
-import Story from './Story';
-import FeaturesBanner from './FeaturesBanner';
-import Testimonial from './Testimonial';
-import BenefitsSection from './BenefitsSection';
-import CTABanner from './CTABanner';
-import WinnersBanner from './WinnersBanner';
-import Stats from './Stats';
-import Companies from './Companies';
+import { defaultRegistry } from './registry-map';
 import { ComponentOverride } from '../types/content';
 
-type RegistryKey = 'hero' | 'story' | 'features' | 'featuresBanner' | 'testimonial' | 'benefits' | 'cta' | 'winners' | 'winnersBanner' | 'stats' | 'companies';
+export type RegistryKey = keyof typeof defaultRegistry;
 
-type ComponentRegistry = {
-  readonly [K in RegistryKey]: React.ComponentType<unknown>;
+export type ComponentPropsMap = {
+  [K in RegistryKey]: React.ComponentPropsWithoutRef<typeof defaultRegistry[K]>;
 };
 
-const defaultRegistry: ComponentRegistry = {
-  hero: Hero,
-  story: Story,
-  features: FeaturesBanner,
-  featuresBanner: FeaturesBanner,
-  testimonial: Testimonial,
-  benefits: BenefitsSection,
-  cta: CTABanner,
-  winners: WinnersBanner,
-  winnersBanner: WinnersBanner,
-  stats: Stats,
-  companies: Companies,
-} as const;
-
-type ComponentPropsMap = {
-  [K in RegistryKey]: React.ComponentPropsWithoutRef<ComponentRegistry[K]>;
-};
+// Union of every component's `data` prop type, derived from the registry itself
+type RegistryDataType = {
+  [K in RegistryKey]: ComponentPropsMap[K] extends { data: infer D } ? D : never;
+}[RegistryKey];
 
 interface DynamicComponentProps<T extends RegistryKey = RegistryKey> {
   componentName: T;
-  props?: Partial<ComponentPropsMap[T]>;
+  props?: Partial<ComponentPropsMap[T]> | { data?: RegistryDataType };
   overrides?: ComponentOverride[];
 }
 
@@ -45,19 +24,19 @@ export function DynamicComponent<T extends RegistryKey>({
   props = {},
   overrides = []
 }: DynamicComponentProps<T>) {
-  const registry: Record<string, React.ComponentType<unknown>> = { ...defaultRegistry };
+  const activeOverride = overrides.find(
+    override => override.enabled && typeof override[componentName] === 'function'
+  );
+  const overrideComponent = activeOverride?.[componentName];
 
-  const activeOverride = overrides.find(override => override.enabled && override[componentName]);
-  if (activeOverride && typeof activeOverride[componentName] !== 'boolean') {
-    registry[componentName] = activeOverride[componentName] as React.ComponentType<unknown>;
-  }
-
-  const Component = registry[componentName];
+  const Component = (
+    typeof overrideComponent === 'function' ? overrideComponent : defaultRegistry[componentName]
+  ) as React.ComponentType<Partial<ComponentPropsMap[T]>>;
 
   if (!Component) {
     console.warn(`Component "${componentName}" not found in registry`);
     return null;
   }
 
-  return <Component {...props} />;
+  return <Component {...(props as Partial<ComponentPropsMap[T]>)} />;
 }

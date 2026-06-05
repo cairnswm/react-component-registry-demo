@@ -7,7 +7,7 @@ interface Hero2Props {
   onSecondaryClick?: () => void;
 }
 
-export default function Hero2({ data, onPrimaryClick, onSecondaryClick }: Hero2Props) {
+const Hero2 = ({ data, onPrimaryClick, onSecondaryClick }: Hero2Props) => {
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -49,4 +49,6 @@ export default function Hero2({ data, onPrimaryClick, onSecondaryClick }: Hero2P
       </div>
     </section>
   );
-}
+};
+
+export default Hero2;

@@ -3,6 +3,7 @@
   "links": [
     { "label": "Home", "path": "/home" },
     { "label": "About", "path": "/about" },
-    { "label": "Benefits", "path": "/benefits" }
+    { "label": "Benefits", "path": "/benefits" },
+    { "label": "Showcase", "path": "/showcase" }
   ]
 }

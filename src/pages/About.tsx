@@ -1,4 +1,4 @@
-import { DynamicComponent } from '../components/ComponentRegistry';
+import { DynamicComponent, RegistryKey } from '../components/ComponentRegistry';
 import Hero2 from '../components/Hero2';
 import aboutData from '../data/about.json';
 import { ComponentOverride } from '../types/content';
@@ -46,7 +46,7 @@ export default function About() {
       {aboutData.sections.map((section, index) => (
         <div key={index}>
           <DynamicComponent
-            componentName={section.component as any}
+            componentName={section.component as RegistryKey}
             props={{ data: section.data }}
             overrides={componentOverrides}
           />

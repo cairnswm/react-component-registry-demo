@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface NavigationLink {
   label: string;
@@ -18,6 +18,8 @@ export interface HeroSection {
     secondary: string;
   };
   image: string;
+  primaryAction?: string;
+  secondaryAction?: string;
 }
 
 export interface Stat {
@@ -139,6 +141,6 @@ export interface ComponentProps {
 }
 
 export interface ComponentOverride {
-  [key: string]: React.ComponentType<unknown> | boolean;
+  [key: string]: React.ComponentType<never> | boolean;
   enabled: boolean;
 }

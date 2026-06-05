@@ -4,6 +4,7 @@ import Landing from './pages/Landing';
 import Home from './pages/Home';
 import About from './pages/About';
 import Benefits from './pages/Benefits';
+import Showcase from './pages/Showcase';
 import navigationData from './data/navigation.json';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/benefits" element={<Benefits />} />
+        <Route path="/showcase" element={<Showcase />} />
       </Routes>
     </div>
   );
