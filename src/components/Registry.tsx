@@ -23,18 +23,31 @@ import type { ComponentOverride } from '../types/content';
 
 // ─── Context ─────────────────────────────────────────────────────────────────
 
-const RegistryContext = createContext<ComponentOverride[]>([]);
+type DefaultsMap = Partial<{ [K in RegistryKey]: React.ComponentType<never> }>;
+
+export type { DefaultsMap };
+
+interface RegistryContextValue {
+  defaults: DefaultsMap;
+  overrides: ComponentOverride[];
+}
+
+const RegistryContext = createContext<RegistryContextValue>({
+  defaults: {},
+  overrides: [],
+});
 
 // ─── Provider ────────────────────────────────────────────────────────────────
 
 interface RegistryProviderProps {
+  defaults?: DefaultsMap;
   overrides?: ComponentOverride[];
   children: React.ReactNode;
 }
 
-function Provider({ overrides = [], children }: RegistryProviderProps) {
+function Provider({ defaults = {}, overrides = [], children }: RegistryProviderProps) {
   return (
-    <RegistryContext.Provider value={overrides}>
+    <RegistryContext.Provider value={{ defaults, overrides }}>
       {children}
     </RegistryContext.Provider>
   );
@@ -44,14 +57,14 @@ function Provider({ overrides = [], children }: RegistryProviderProps) {
 
 function createRegistryComponent<K extends RegistryKey>(key: K) {
   function RegistryComponent(props: ComponentPropsMap[K]) {
-    const overrides = useContext(RegistryContext);
+    const { defaults, overrides } = useContext(RegistryContext);
     const activeOverride = overrides.find(
       override => override.enabled && typeof override[key] === 'function'
     );
     const Component = (
       typeof activeOverride?.[key] === 'function'
         ? activeOverride[key]
-        : defaultRegistry[key]
+        : (defaults[key] ?? defaultRegistry[key])
     ) as React.ComponentType<Partial<ComponentPropsMap[K]>>;
     return <Component {...(props as Partial<ComponentPropsMap[K]>)} />;
   }
